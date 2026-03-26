@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cubbie's Greenville</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
+  <style>
+    /* Animated Dark Gradient Background */
+    body {
+      margin: 0;
+      font-family: 'Lato', sans-serif;
+      background: linear-gradient(-45deg, #1a1a1a, #222222, #1c1c1c, #252525);
+      background-size: 400% 400%;
+      color: #f5f5f5;
+      animation: gradientShift 45s ease infinite;
+    }
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    header {
+      background-color: #b33f2d;
+      padding: 25px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.35);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 3em;
+      font-family: 'Montserrat', sans-serif;
+      letter-spacing: 1px;
+    }
+    header p {
+      margin: 5px 0 0;
+      font-size: 1.3em;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+      color: #f5e0c5;
+    }
+
+    .container {
+      display: flex;
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 0 20px;
+      gap: 20px;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 300px;
+      background-color: #2b2b2b;
+      padding: 20px;
+      border-radius: 6px;
+      overflow-y: auto;
+      max-height: 80vh;
+      box-shadow: 3px 3px 12px rgba(0,0,0,0.5);
+    }
+
+    .sidebar h2 {
+      font-size: 22px;
+      font-family: 'Montserrat', sans-serif;
+      border-bottom: 1px solid #555;
+      padding-bottom: 8px;
+      margin-bottom: 18px;
+      color: #caa55f;
+    }
+
+    .menu-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 18px;
+      background-color: #333;
+      padding: 10px;
+      border-radius: 6px;
+      gap: 12px;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.35);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    }
+
+    .menu-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 3px 4px 12px rgba(0,0,0,0.5);
+      background-color: #3a3a3a;
+    }
+
+    .menu-item img {
+      width: 70px;
+      height: 70px;
+      border-radius: 4px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .menu-item h3 {
+      margin: 0 0 3px;
+      font-size: 1.2em;
+      font-family: 'Montserrat', sans-serif;
+      color: #e6c68b;
+    }
+
+    .menu-item p {
+      margin: 0;
+      font-size: 0.95em;
+      color: #ccc;
+    }
+
+    /* Main Content */
+    .content {
+      flex: 1;
+    }
+
+    .content h2 {
+      font-size: 1.9em;
+      margin-bottom: 18px;
+      font-family: 'Montserrat', sans-serif;
+      color: #b33f2d;
+    }
+
+    .content p {
+      font-size: 1.1em;
+      margin-bottom: 18px;
+    }
+
+    .order-btn, .view-menu-btn {
+      display: inline-block;
+      background-color: #e6c68b;
+      color: #1c1c1c;
+      padding: 14px 28px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 700;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.2em;
+      margin-bottom: 25px;
+      box-shadow: 2px 2px 10px rgba(0,0,0,0.4);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    }
+
+    .order-btn:hover, .view-menu-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 4px 6px 18px rgba(0,0,0,0.55);
+      background-color: #d4b869;
+    }
+
+    iframe {
+      width: 100%;
+      height: 480px;
+      border-radius: 6px;
+      border: none;
+      margin-top: 20px;
+      box-shadow: 2px 2px 12px rgba(0,0,0,0.45);
+    }
+
+    footer {
+      background-color: #caa55f;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      font-size: 1.1em;
+      color: #1c1c1c;
+      box-shadow: 0 -4px 6px rgba(0,0,0,0.3);
+      font-family: 'Montserrat', sans-serif;
+      letter-spacing: 0.5px;
+    }
+
+    @media (max-width: 900px) {
+      .container {
+        flex-direction: column;
+      }
+      .sidebar {
+        width: 100%;
+        max-height: none;
+        margin-bottom: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Cubbie's</h1>
+  <p>Greenville’s Favorite Burgers, Sandwiches & Plates</p>
+</header>
+
+<div class="container">
+
+  <div class="sidebar">
+    <h2>Menu</h2>
+
+    <div class="menu-item">
+      <img loading="lazy" src="https://source.unsplash.com/300x300/?burger" alt="Small Hamburger">
+      <div>
+        <h3>Small Hamburger $3.25</h3>
+        <p>Mustard, slaw, chili, bacon</p>
+      </div>
+    </div>
+
+    <div class="menu-item">
+      <img loading="lazy" src="https://source.unsplash.com/300x300/?cheeseburger" alt="Small Cheeseburger">
+      <div>
+        <h3>Small Cheeseburger $3.50</h3>
+        <p>Mustard, slaw, chili, bacon</p>
+      </div>
+    </div>
+
+    <div class="menu-item">
+      <img loading="lazy" src="https://source.unsplash.com/300x300/?burger" alt="Large Hamburger">
+      <div>
+        <h3>Large Cubbies Hamburger $4.60</h3>
+        <p>Mustard, slaw, chili, bacon</p>
+      </div>
+    </div>
+
+    <div class="menu-item">
+      <img loading="lazy" src="https://source.unsplash.com/300x300/?cheeseburger" alt="Large Cheeseburger">
+      <div>
+        <h3>Large Cubbies Cheeseburger $4.75</h3>
+        <p>Mustard, slaw, chili, bacon</p>
+      </div>
+    </div>
+
+    <div class="menu-item">
+      <img loading="lazy" src="https://images.unsplash.com/photo-1601924582975-0ee1b71d2c6b?crop=entropy&cs=tinysrgb&fit=crop&h=70&w=70" alt="Hot Dog">
+      <div>
+        <h3>Hot Dogs $2.35</h3>
+        <p>Mustard, slaw, chili, bacon</p>
+      </div>
+    </div>
+
+    <div class="menu-item">
+      <img loading="lazy" src="https://source.unsplash.com/300x300/?shrimpburger" alt="Shrimpburger">
+      <div>
+        <h3>Cubbies Shrimpburger $6.50</h3>
+        <p>Slaw & ketchup</p>
+      </div>
+    </div>
+
+    <div class="menu-item">
+      <img loading="lazy" src="https://source.unsplash.com/300x300/?fries" alt="Freedom Fries">
+      <div><h3>Freedom Fries $2.25</h3></div>
+    </div>
+
+    <div class="menu-item">
+      <img loading="lazy" src="https://source.unsplash.com/300x300/?onionrings" alt="Onion Rings">
+      <div><h3>Onion Rings $3.00</h3></div>
+    </div>
+
+    <div class="menu-item">
+      <img loading="lazy" src="https://source.unsplash.com/300x300/?hushpuppies" alt="Hushpuppies">
+      <div><h3>Hushpuppies $2.25</h3></div>
+    </div>
+
+    <div class="menu-item">
+      <img loading="lazy" src="https://source.unsplash.com/300x300/?shrimpplate" alt="Shrimp Plate">
+      <div><h3>Shrimp Plate $12.00</h3></div>
+    </div>
+
+    <div class="menu-item">
+      <img loading="lazy" src="https://source.unsplash.com/300x300/?chicken,tenders" alt="Fried Chicken Tender Plate">
+      <div><h3>Fried Chicken Tender Plate $7.00</h3></div>
+    </div>
+
+    <div class="menu-item">
+      <img loading="lazy" src="https://source.unsplash.com/300x300/?hamburgersteak" alt="Hamburger Steak Plate">
+      <div><h3>Hamburger Steak Plate $7.00</h3></div>
+    </div>
+
+  </div>
+
+  <div class="content">
+    <h2>Order Online</h2>
+    <p>Click below to start your order with Square:</p>
+    <a href="https://yourrestaurant.square.site" target="_blank" class="order-btn">Start Your Order</a>
+
+    <h2>Contact</h2>
+    <p>Cubbie's Greenville</p>
+    <p>600 East Arlington Boulevard, Greenville, NC 27858</p>
+    <p>(252) 321-8091</p>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3251.123456!2d-77.389876!3d35.610123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89a0b1c6d8f12345%3A0xabcdef1234567890!2sCubbies!5e0!3m2!1sen!2sus!4v1687489530000!5m2!1sen!2sus" allowfullscreen></iframe>
+  </div>
+
+</div>
+
+<footer>
+  &copy; 2026 Cubbie's Greenville | Designed as Demo
+</footer>
+
+</body>
+</html>
